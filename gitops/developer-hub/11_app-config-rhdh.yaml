@@ -21,7 +21,7 @@ data:
       cors:
         origin: https://backstage-developer-hub-rhdh.${basedomain} # be aware: project 'demo-project' is part of the url. Change it if you use another project
     catalog:
-      processingInterval: { minutes: 1 }
+      processingInterval: { minutes: 20 }
       processing:
         cache:
           enabled: false
@@ -43,12 +43,12 @@ data:
                 - API
                 - Template
           target: https://github.com/jobbnas/demo-pacman/blob/main/catalog-info.yaml
-          type: url
+          type: github-discovery
       providers:
-        # github:
-          # - host: github.com
-          #   apiBaseUrl: https://api.github.com
-          #   token: ${GITHUB_TOKEN}
+        github:
+          - host: github.com
+            apiBaseUrl: https://api.github.com
+            token: ${GITHUB_TOKEN}
         keycloakOrg:
           default:
             baseUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com
