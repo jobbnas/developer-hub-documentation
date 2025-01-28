@@ -11,30 +11,24 @@ data:
       - package: ./dynamic-plugins/dist/backstage-community-plugin-catalog-backend-module-keycloak-dynamic
         # documentation: https://janus-idp.io/plugins/keycloak
         disabled: false
-      - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
-        # documentation: https://docs.redhat.com/en/documentation/red_hat_developer_hub/0.1/html/argocd_plugin_for_backstage/argocd-plugin-for-backstage#installation
-        # documentation: https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.2/html/configuring_plugins_in_red_hat_developer_hub/rhdh-installing-dynamic-plugins#enabling-argo-cd-plugin
-        disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-argocd
-        disabled: false
-      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
-        disabled: false
-      # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
-      #   # documentation: https://docs.redhat.com/en/documentation/red_hat_plug-ins_for_backstage/1.0/html-single/tekton_plugin_for_backstage/index#setting-tekton-plugin
+      # - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
       #   disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
-        # documentation: https://backstage.io/docs/features/kubernetes/configuration/#config
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-jenkins-backend-dynamic
-        # documentation: https://www.npmjs.com/package/@backstage-community/plugin-jenkins-backend
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-jenkins
-        disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-topology
-        # documentation: https://www.npmjs.com/package/@janus-idp/backstage-plugin-topology
-        disabled: false
+      # # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
+      # #   # documentation: https://docs.redhat.com/en/documentation/red_hat_plug-ins_for_backstage/1.0/html-single/tekton_plugin_for_backstage/index#setting-tekton-plugin
+      # #   disabled: false
+      # - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
+      #   # documentation: https://backstage.io/docs/features/kubernetes/configuration/#config
+      #   disabled: false
+      # - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
+      #   disabled: false
+      # - package: ./dynamic-plugins/dist/backstage-plugin-jenkins-backend-dynamic
+      #   # documentation: https://www.npmjs.com/package/@backstage-community/plugin-jenkins-backend
+      #   disabled: false
+      # - package: ./dynamic-plugins/dist/backstage-plugin-jenkins
+      #   disabled: false
+      # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-topology
+      #   # documentation: https://www.npmjs.com/package/@janus-idp/backstage-plugin-topology
+      #   disabled: false
       # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-aap-backend-dynamic
       #   # documentation: https://www.npmjs.com/package/@janus-idp/backstage-plugin-aap-backend-dynamic
       #   disabled: false
