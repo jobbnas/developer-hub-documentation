@@ -20,6 +20,10 @@ data:
       baseUrl: https://backstage-developer-hub-rhdh.${basedomain} # be aware: project 'demo-project' is part of the url. Change it if you use another project
       cors:
         origin: https://backstage-developer-hub-rhdh.${basedomain} # be aware: project 'demo-project' is part of the url. Change it if you use another project
+    integrations:
+      github:
+        - host: github.com
+          token: ${GITHUB_TOKEN}
     catalog:
       processingInterval: { minutes: 20 }
       processing:
@@ -31,8 +35,8 @@ data:
       rules:
         - allow: [Location, Component, API, Resource, System, Domain, Group, User, Template]
       locations: 
-        - type: github-discovery
-          target: https://github.com/<your-username>/*/blob/main/catalog-info.yaml
+        - type: url
+          target: https://github.com/jobbnas/demo-pacman/blob/main/catalog-info.yaml
       providers:
         github:
           default:
