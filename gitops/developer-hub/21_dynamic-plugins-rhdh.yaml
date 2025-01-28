@@ -2,7 +2,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: dynamic-plugins-rhdh
-  namespace: demo-project
+  namespace: rhdh
 data:
   dynamic-plugins.yaml: |
     includes:
@@ -10,9 +10,6 @@ data:
     plugins:
       - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-keycloak-backend-dynamic 
         # documentation: https://janus-idp.io/plugins/keycloak
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
-        # documentation: https://backstage.io/docs/integrations/github/discovery/
         disabled: false
       - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
         # documentation: https://docs.redhat.com/en/documentation/red_hat_developer_hub/0.1/html/argocd_plugin_for_backstage/argocd-plugin-for-backstage#installation
@@ -22,9 +19,9 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic
         disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
-        # documentation: https://docs.redhat.com/en/documentation/red_hat_plug-ins_for_backstage/1.0/html-single/tekton_plugin_for_backstage/index#setting-tekton-plugin
-        disabled: false
+      # - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-tekton
+      #   # documentation: https://docs.redhat.com/en/documentation/red_hat_plug-ins_for_backstage/1.0/html-single/tekton_plugin_for_backstage/index#setting-tekton-plugin
+      #   disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
         # documentation: https://backstage.io/docs/features/kubernetes/configuration/#config
         disabled: false
@@ -34,8 +31,6 @@ data:
         # documentation: https://www.npmjs.com/package/@backstage-community/plugin-jenkins-backend
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-jenkins
-        disabled: false
-      - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-3scale-backend-dynamic
         disabled: false
       - package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-topology
         # documentation: https://www.npmjs.com/package/@janus-idp/backstage-plugin-topology
@@ -74,6 +69,7 @@ data:
         #if-aws-techdocs-disabled # iframes in techdocs: https://backstage.io/docs/features/techdocs/how-to-guides/#how-to-add-the-documentation-setup-to-your-software-templates
         #if-aws-techdocs-disabled disabled: false
         #if-aws-techdocs-disabled pluginConfig: {}
+
 #      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic TODO enable when you want to sync...
 #                                                                                                   TODO ...users and groups from GitHub
 #        disabled: false
