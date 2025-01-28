@@ -46,7 +46,7 @@ data:
           type: github-discovery
       providers:
         github:
-          default
+          default:
             host: github.com
             apiBaseUrl: https://api.github.com
             token: ${GITHUB_TOKEN}
