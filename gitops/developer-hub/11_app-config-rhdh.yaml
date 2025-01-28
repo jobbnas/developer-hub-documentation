@@ -20,56 +20,11 @@ data:
       baseUrl: https://backstage-developer-hub-rhdh.${basedomain} # be aware: project 'demo-project' is part of the url. Change it if you use another project
       cors:
         origin: https://backstage-developer-hub-rhdh.${basedomain} # be aware: project 'demo-project' is part of the url. Change it if you use another project
-    integrations:
-      github:
-        - host: github.com
-          token: ${RHDH_GITHUB_INTEGRATION_PERSONAL_ACCESS_TOKEN}
-          apps:
-            - appId: ${RHDH_GITHUB_INTEGRATION_APP_ID}
-              clientId: ${RHDH_GITHUB_INTEGRATION_APP_CLIENT_ID}
-              clientSecret: ${RHDH_GITHUB_INTEGRATION_APP_CLIENT_SECRET}
-              webhookUrl: none
-              webhookSecret: none
-              privateKey: ${RHDH_GITHUB_INTEGRATION_APP_PRIVATE_KEY}
     catalog:
-      processingInterval: { minutes: 1 }
-      processing:
-        cache:
-          enabled: false
-      lifecycles:
-        - production
-        - staging
-      rules:
-        - allow: [Location, Component, API, Resource, System, Domain, Group, User, Template]
-      locations: 
-        - rules:
-            - allow:
-                - Group
-                - User
-                - Component
-                - Location
-                - System
-                - Resource
-                - Domain
-                - API
-                - Template
-          target: https://github.com/maarten-vandeperre/developer-hub-documentation/blob/main/configurations/catalog-entities/all.yaml
-          type: url
       providers:
-        # aap:
-          # prod:
-            # baseUrl: https://automation-controller-aap.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com/
-            # authorization: 'Bearer MMGqXFu1I71HWfiAUqLrYEuA1VMu1R' #automation-controller-secret-key secret-key
-            # owner: 'maarten-vandeperre-org' # an owner defined within catalog entities
-            # system: 'maartens-wonderful-system' # an owner defined within catalog entities
-            # schedule: # optional; same options as in TaskScheduleDefinition
-              # # supports cron, ISO duration, "human duration" as used in code
-              # frequency: { minutes: 1 }
-              # # supports ISO duration, "human duration" as used in code
-              # timeout: { minutes: 1 }
         keycloakOrg:
           default:
-            baseUrl: https://demo-keycloak-instance.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com
+            baseUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com
             loginRealm: rhdh
             realm: rhdh
             clientId: rhdh-client 
@@ -81,40 +36,6 @@ data:
               # supports ISO duration, "human duration" as used in code
               timeout: { minutes: 3 }
               initialDelay: { seconds: 15 }
-              # highlight-add-end
-        github:
-          # the provider ID can be any camelCase string
-          providerId:
-            organization: 'maarten-vandeperre' # string
-            catalogPath: '/catalog-info.yaml' # string
-            filters:
-              branch: 'master' # string
-              repository: '.*' # Regex
-            schedule: # optional; same options as in TaskScheduleDefinition
-              # supports cron, ISO duration, "human duration" as used in code
-              frequency: { minutes: 1 }
-              # supports ISO duration, "human duration" as used in code
-              timeout: { minutes: 1 }
-              initialDelay: { seconds: 15 }
-        ocm:
-          default:
-            kubernetesPluginRef: local-cluster
-            name: multiclusterhub
-            owner: group:rhdh
-            schedule:
-              frequency:
-                seconds: 10
-              timeout:
-                seconds: 60
-        threeScaleApiEntity:
-          default:
-            baseUrl: https://demo-organization-maarten-admin.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com
-            accessToken: ${RHDH_3SCALE_RHDH_CLIENT_SECRET}
-            schedule: # optional; same options as in TaskScheduleDefinition
-              # supports cron, ISO duration, "human duration" as used in code
-              frequency: { minutes: 1 }
-              # supports ISO duration, "human duration" as used in code
-              timeout: { minutes: 3 }
         #if-minio-techdocs-disabled awsS3: # minio
           #if-minio-techdocs-disabled default: # identifies your dataset / provider independent of config changes
             #if-minio-techdocs-disabled bucketName: minio-tech-docs
@@ -144,17 +65,13 @@ data:
       session:
         secret: ${BACKEND_SECRET}
       providers:
-        github:
-          default:
-            clientId: ${RHDH_GITHUB_INTEGRATION_APP_CLIENT_ID}
-            clientSecret: ${RHDH_GITHUB_INTEGRATION_APP_CLIENT_SECRET}
         oidc:
           default:
-    #        metadataUrl: <keycloak_base_url>/realms/rhdh/.well-known/openid-configuration # ${AUTH_OIDC_METADATA_URL}
-            metadataUrl: https://demo-keycloak-instance.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com/realms/rhdh/.well-known/openid-configuration
+    #        metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com//realms/rhdh/.well-known/openid-configuration # ${AUTH_OIDC_METADATA_URL}
+            metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/realms/rhdh/.well-known/openid-configuration
             clientId: rhdh-client
             clientSecret: 7iKyQUwyApIojzOlSj82vUWIhejv41E5 # ${RHDH_KEYCLOAK_RHDH_CLIENT_SECRET}
-            prompt: auto# recommended to use auto
+            prompt: auto # recommended to use auto
             ## uncomment for additional configuration options
             # callbackUrl: ${AUTH_OIDC_CALLBACK_URL}
             # tokenEndpointAuthMethod: ${AUTH_OIDC_TOKEN_ENDPOINT_METHOD}
@@ -166,41 +83,41 @@ data:
                 - resolver: preferredUsernameMatchingUserEntityName
             #    - resolver: emailMatchingUserEntityProfileEmail
             #    - resolver: emailLocalPartMatchingUserEntityName
-    argocd:
-      appLocatorMethods:
-        - type: 'config'
-          instances:
-            - name: argoInstance1
-              url: https://argocd-instance-server-demo-project.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com
-              username: admin 
-              password: ${RHDH_ARGOCD_ADMIN_PWD}
-    jenkins:
-      instances:
-        - name: default-jenkins
-          baseUrl: https://jenkins-demo-project.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com/
-          username: admin
-          apiKey: rhdh
-    kubernetes:
-      clusterLocatorMethods:
-        - clusters:
-            - authProvider: serviceAccount
-              name: local-cluster
-              serviceAccountToken: ${RHDH_TEKTON_SERVICE_ACCOUNT_TOKEN}
-              skipTLSVerify: true
-              url: https://api.cluster-mq98c.mq98c.sandbox870.opentlc.com:6443
-          type: config
-      customResources:
-        - apiVersion: v1beta1
-          group: tekton.dev
-          plural: pipelineruns
-        - apiVersion: v1beta1
-          group: tekton.dev
-          plural: taskruns
-        - apiVersion: v1
-          group: route.openshift.io
-          plural: routes
-      serviceLocatorMethod:
-        type: multiTenant
+    # argocd:
+    #   appLocatorMethods:
+    #     - type: 'config'
+    #       instances:
+    #         - name: argoInstance1
+    #           url: https://argocd-instance-server-demo-project.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com
+    #           username: admin 
+    #           password: ${RHDH_ARGOCD_ADMIN_PWD}
+    # jenkins:
+    #   instances:
+    #     - name: default-jenkins
+    #       baseUrl: https://jenkins-demo-project.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com/
+    #       username: admin
+    #       apiKey: rhdh
+    # kubernetes:
+    #   clusterLocatorMethods:
+    #     - clusters:
+    #         - authProvider: serviceAccount
+    #           name: local-cluster
+    #           serviceAccountToken: ${RHDH_TEKTON_SERVICE_ACCOUNT_TOKEN}
+    #           skipTLSVerify: true
+    #           url: https://api.cluster-mq98c.mq98c.sandbox870.opentlc.com:6443
+    #       type: config
+      # customResources:
+      #   - apiVersion: v1beta1
+      #     group: tekton.dev
+      #     plural: pipelineruns
+      #   - apiVersion: v1beta1
+      #     group: tekton.dev
+      #     plural: taskruns
+      #   - apiVersion: v1
+      #     group: route.openshift.io
+      #     plural: routes
+      # serviceLocatorMethod:
+      #   type: multiTenant
     dynamicPlugins:
       frontend:
         internal.backstage-plugin-simple-chat:
