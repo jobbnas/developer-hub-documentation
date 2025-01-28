@@ -68,7 +68,7 @@ data:
         oidc:
           default:
     #        metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com//realms/rhdh/.well-known/openid-configuration # ${AUTH_OIDC_METADATA_URL}
-            metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/realms/rhdh/.well-known/openid-configuration
+            metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/realms/rhdh
             clientId: rhdh-client
             clientSecret: 7iKyQUwyApIojzOlSj82vUWIhejv41E5 # ${RHDH_KEYCLOAK_RHDH_CLIENT_SECRET}
             prompt: auto # recommended to use auto
