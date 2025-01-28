@@ -13,7 +13,7 @@ spec:
     # we'll make both hostname and admin URL the same (fewer certificates' config)
     #adminUrl: 'https://admin.demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com'
     adminUrl: 'https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com'
-    hostname: demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com
+    hostname: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com
   instances: 1
   db:
     vendor: postgres
