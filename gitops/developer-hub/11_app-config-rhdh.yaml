@@ -31,19 +31,8 @@ data:
       rules:
         - allow: [Location, Component, API, Resource, System, Domain, Group, User, Template]
       locations: 
-        - rules:
-            - allow:
-                - Group
-                - User
-                - Component
-                - Location
-                - System
-                - Resource
-                - Domain
-                - API
-                - Template
-          target: https://github.com/jobbnas/demo-pacman/blob/main/catalog-info.yaml
-          type: github-discovery
+        - type: github-discovery
+          target: https://github.com/<your-username>/*/blob/main/catalog-info.yaml
       providers:
         github:
           default:
