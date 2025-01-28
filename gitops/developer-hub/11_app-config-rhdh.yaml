@@ -67,7 +67,6 @@ data:
       providers:
         oidc:
           default:
-    #        metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com//realms/rhdh/.well-known/openid-configuration # ${AUTH_OIDC_METADATA_URL}
             metadataUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/realms/rhdh
             clientId: rhdh-client
             clientSecret: 7iKyQUwyApIojzOlSj82vUWIhejv41E5 # ${RHDH_KEYCLOAK_RHDH_CLIENT_SECRET}
@@ -83,14 +82,14 @@ data:
                 - resolver: preferredUsernameMatchingUserEntityName
             #    - resolver: emailMatchingUserEntityProfileEmail
             #    - resolver: emailLocalPartMatchingUserEntityName
-    # argocd:
-    #   appLocatorMethods:
-    #     - type: 'config'
-    #       instances:
-    #         - name: argoInstance1
-    #           url: https://argocd-instance-server-demo-project.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com
-    #           username: admin 
-    #           password: ${RHDH_ARGOCD_ADMIN_PWD}
+    argocd:
+      appLocatorMethods:
+        - type: 'config'
+          instances:
+            - name: argoInstance1
+              url: https://openshift-gitops-server-openshift-gitops.apps.rosa-rm7ns.gkef.p1.openshiftapps.com 
+              username: admin 
+              password: sKnat2A9QCHEgv0j35MLeOqoPuIUrTFf
     # jenkins:
     #   instances:
     #     - name: default-jenkins
