@@ -50,6 +50,7 @@ data:
             host: github.com
             apiBaseUrl: https://api.github.com
             token: ${GITHUB_TOKEN}
+            organization: jobbnas
         keycloakOrg:
           default:
             baseUrl: https://demo-keycloak-instance.apps.rosa-rm7ns.gkef.p1.openshiftapps.com
