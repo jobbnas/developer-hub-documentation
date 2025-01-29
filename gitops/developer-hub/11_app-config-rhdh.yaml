@@ -32,8 +32,6 @@ data:
       lifecycles:
         - production
         - staging
-      rules:
-        - allow: [Location, Component, API, Resource, System, Domain, Group, User, Template]
       locations: 
         - type: url
           target: https://github.com/jobbnas/demo-pacman/blob/main/catalog-info.yaml
