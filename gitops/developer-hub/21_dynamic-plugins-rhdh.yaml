@@ -14,7 +14,6 @@ data:
       - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd
         disabled: false
       - package: ./dynamic-plugins/dist/roadiehq-backstage-plugin-argo-cd-backend-dynamic
-      # documentation: https://docs.redhat.com/en/documentation/red_hat_plug-ins_for_backstage/1.0/html-single/tekton_plugin_for_backstage/index#setting-tekton-plugin
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
         disabled: false
