@@ -110,12 +110,12 @@ data:
               url: https://openshift-gitops-server-openshift-gitops.apps.rosa-rm7ns.gkef.p1.openshiftapps.com 
               username: admin 
               password: sKnat2A9QCHEgv0j35MLeOqoPuIUrTFf
-    # jenkins:
-    #   instances:
-    #     - name: default-jenkins
-    #       baseUrl: https://jenkins-demo-project.apps.cluster-mq98c.mq98c.sandbox870.opentlc.com/
-    #       username: admin
-    #       apiKey: rhdh
+    jenkins:
+      instances:
+        - name: default-jenkins
+          baseUrl: https://https://jenkins-pacman.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/
+          username: ${JENKINS_USERNAME}
+          apiKey: ${JENKINS_PASSWORD}
     # kubernetes:
     #   clusterLocatorMethods:
     #     - clusters:
