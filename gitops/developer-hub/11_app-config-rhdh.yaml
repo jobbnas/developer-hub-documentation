@@ -116,14 +116,16 @@ data:
           baseUrl: https://jenkins-pacman.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/
           username: ${JENKINS_USERNAME}
           apiKey: ${JENKINS_PASSWORD}
-    # kubernetes:
-    #   clusterLocatorMethods:
-    #     - clusters:
-    #         - authProvider: serviceAccount
-    #           name: local-cluster
-    #           serviceAccountToken: ${RHDH_TEKTON_SERVICE_ACCOUNT_TOKEN}
-    #           skipTLSVerify: true
-    #           url: https://api.cluster-mq98c.mq98c.sandbox870.opentlc.com:6443
+    kubernetes:
+      serviceLocatorMethod:
+        type: 'multiTenant'
+      clusterLocatorMethods:
+        - clusters:
+            - authProvider: serviceAccount
+              name: rhdh-kubernetes
+              serviceAccountToken: ${RHDH_TEKTON_SERVICE_ACCOUNT_TOKEN}
+              skipTLSVerify: true
+              url: https://api.rosa-rm7ns.gkef.p1.openshiftapps.com:6443
     #       type: config
       # customResources:
       #   - apiVersion: v1beta1
