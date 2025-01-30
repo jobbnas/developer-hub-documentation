@@ -23,10 +23,8 @@ data:
         disabled: false
       - package: ./dynamic-plugins/dist/backstage-community-plugin-topology
         disabled: false
-      # - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
-      #   disabled: false
-      # - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes
-      #   disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
+        disabled: false
       # - package: ./dynamic-plugins/dist/backstage-plugin-jenkins-backend-dynamic
       #   # documentation: https://www.npmjs.com/package/@backstage-community/plugin-jenkins-backend
       #   disabled: false
