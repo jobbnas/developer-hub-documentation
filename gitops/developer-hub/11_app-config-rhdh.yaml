@@ -113,7 +113,7 @@ data:
     jenkins:
       instances:
         - name: default-jenkins
-          baseUrl: https://https://jenkins-pacman.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/
+          baseUrl: https://jenkins-pacman.apps.rosa-rm7ns.gkef.p1.openshiftapps.com/
           username: ${JENKINS_USERNAME}
           apiKey: ${JENKINS_PASSWORD}
     # kubernetes:
