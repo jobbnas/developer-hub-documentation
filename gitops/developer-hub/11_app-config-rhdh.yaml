@@ -120,13 +120,13 @@ data:
       serviceLocatorMethod:
         type: 'multiTenant'
       clusterLocatorMethods:
-        - clusters:
+        - type: 'config'
+          clusters:
             - authProvider: serviceAccount
               name: rhdh-kubernetes
               serviceAccountToken: ${RHDH_TEKTON_SERVICE_ACCOUNT_TOKEN}
               skipTLSVerify: true
               url: https://api.rosa-rm7ns.gkef.p1.openshiftapps.com:6443
-    #       type: config
       # customResources:
       #   - apiVersion: v1beta1
       #     group: tekton.dev
